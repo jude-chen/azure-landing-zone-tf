@@ -19,9 +19,6 @@ env:
 
 jobs:
   run-terraform:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: bootstrap
-    steps:
-      - uses: ./.github/workflows/terraform.yml
+    uses: ./.github/workflows/terraform.yml
+    with:
+      working-directory: bootstrap
