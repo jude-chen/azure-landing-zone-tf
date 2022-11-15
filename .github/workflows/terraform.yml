@@ -1,18 +1,5 @@
-name: Terraform Pipeline
-
 on:
-  push:
-    # branches:
-    #   - main
-    paths:
-      - bootstrap/*
-      - platform/*
-      - workloads/*
-  pull_request:
-    paths:
-      - bootstrap/*
-      - platform/*
-      - workloads/*
+  workflow_call:
 
 jobs:
   terraform:
