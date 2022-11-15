@@ -1,6 +1,10 @@
 resource "azurerm_resource_group" "rg" {
   name     = "terraform-bootstrap-rg"
   location = "southcentralus"
+  tags = {
+    application = "Terraform"
+  }
+
 }
 
 resource "azurerm_storage_account" "tf_sa" {
