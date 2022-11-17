@@ -28,7 +28,7 @@ module "enterprise_scale" {
   # Set the required input variable `root_parent_id` using the Tenant ID from the un-aliased provider
   root_parent_id = data.azurerm_client_config.core.tenant_id
   root_id        = "estf"
-  root_name      = "Enterprise Scale Terraform"
+  root_name      = "Enterprise Scale TF"
 
   # Enable deployment of the management resources, using the management
   # aliased provider to populate the correct Subscription ID
