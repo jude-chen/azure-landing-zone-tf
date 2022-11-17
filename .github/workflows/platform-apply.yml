@@ -1,0 +1,19 @@
+name: Deploy Platform
+
+on:
+  workflow_dispatch:
+  push:
+    # branches:
+    #   - main
+    paths:
+      - platform/*
+  pull_request:
+    paths:
+      - platform/*
+
+jobs:
+  run-terraform:
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      working-directory: platform
+    secrets: inherit
