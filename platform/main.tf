@@ -30,6 +30,9 @@ module "enterprise_scale" {
   root_id        = "estf"
   root_name      = "Enterprise Scale TF"
 
+  # Set the default region to deploy the ESLZ environment (East US if not specified).
+  default_location = "southcentralus"
+
   # Enable deployment of the management resources, using the management
   # aliased provider to populate the correct Subscription ID
   deploy_management_resources = true
