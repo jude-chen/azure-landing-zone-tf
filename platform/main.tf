@@ -32,14 +32,18 @@ module "enterprise_scale" {
 
   # Enable deployment of the management resources, using the management
   # aliased provider to populate the correct Subscription ID
-  #   deploy_management_resources = true
-  #   subscription_id_management  = data.azurerm_client_config.management.subscription_id
+  deploy_management_resources = true
+  subscription_id_management  = data.azurerm_client_config.management.subscription_id
 
   # Enable deployment of the connectivity resources, using the connectivity
   # aliased provider to populate the correct Subscription ID
-  #   deploy_connectivity_resources = true
-  #   subscription_id_connectivity  = data.azurerm_client_config.connectivity.subscription_id
+  deploy_connectivity_resources = true
+  subscription_id_connectivity  = data.azurerm_client_config.connectivity.subscription_id
 
   # insert additional optional input variables here
-
+  subscription_id_identity = "09008fd7-85f6-4ecb-842b-6d4e66fd1008"
+  subscription_id_overrides = {
+    landing-zones = ["6061f76a-d2e0-42ba-91c4-3b8e4a915e98"],
+    sandboxes     = ["b8983692-50a7-4a08-947a-68abed4621e1"]
+  }
 }
