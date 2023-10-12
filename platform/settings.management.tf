@@ -44,7 +44,7 @@ locals {
     }
 
     location = var.management_resources_location
-    tags     = null
+    tags     = var.tags
     advanced = null
   }
 }

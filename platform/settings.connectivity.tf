@@ -141,7 +141,7 @@ locals {
     }
 
     location = var.connectivity_resources_location
-    tags     = null
+    tags     = var.tags
     advanced = null
   }
 }

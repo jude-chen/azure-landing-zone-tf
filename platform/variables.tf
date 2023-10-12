@@ -92,3 +92,11 @@ variable "deploy_identity_resources" {
   type    = bool
   default = false
 }
+
+variable "tags" {
+  type = map(string)
+  default = {
+    environment = "Prod"
+    application = "estf-platform"
+  }
+}
