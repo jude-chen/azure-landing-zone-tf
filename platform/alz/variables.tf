@@ -100,3 +100,8 @@ variable "tags" {
     application = "estf-platform"
   }
 }
+
+variable "subscription_id_overrides" {
+  type    = map(list(string))
+  default = {}
+}
