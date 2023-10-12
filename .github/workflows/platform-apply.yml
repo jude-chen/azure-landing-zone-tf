@@ -3,6 +3,8 @@ name: Deploy Platform
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - platform/alz/*
   pull_request:
