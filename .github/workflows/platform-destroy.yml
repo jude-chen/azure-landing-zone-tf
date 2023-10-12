@@ -7,6 +7,6 @@ jobs:
   run-terraform:
     uses: ./.github/workflows/terraform-destroy.yml
     with:
-      working-directory: platform
+      working-directory: platform/alz
       tfvar-file: platform.tfvars
     secrets: inherit

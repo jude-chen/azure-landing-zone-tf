@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - platform/*
+      - platform/alz/*
   pull_request:
     paths:
-      - platform/*
+      - platform/alz/*
 
 jobs:
   run-terraform:
     uses: ./.github/workflows/terraform-apply.yml
     with:
-      working-directory: platform
+      working-directory: platform/alz
       tfvar-file: platform.tfvars
     secrets: inherit
