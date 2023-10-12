@@ -51,7 +51,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: !inputs.tfvar-file
+        if: (!inputs.tfvar-file)
         run: terraform plan -out=terraform.tfplan
         continue-on-error: true
 
