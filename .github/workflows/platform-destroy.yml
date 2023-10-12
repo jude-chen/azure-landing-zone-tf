@@ -8,4 +8,5 @@ jobs:
     uses: ./.github/workflows/terraform-destroy.yml
     with:
       working-directory: platform
+      tfvar-file: platform.tfvars
     secrets: inherit

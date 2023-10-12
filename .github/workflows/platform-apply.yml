@@ -16,4 +16,5 @@ jobs:
     uses: ./.github/workflows/terraform-apply.yml
     with:
       working-directory: platform
+      tfvar-file: platform.tfvars
     secrets: inherit

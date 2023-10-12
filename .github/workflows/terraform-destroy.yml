@@ -4,6 +4,9 @@ on:
       working-directory:
         required: true
         type: string
+      tfvar-file:
+          required: false
+          type: string
 
 jobs:
   terraform:
@@ -31,5 +34,17 @@ jobs:
         id: init
         run: terraform init
 
+      - name: Terraform Destroy Plan with tfvars
+        id: destroy-plan-tfvars
+        if: inputs.tfvar-file
+        run: terraform plan -destroy -var-file ${{ inputs.tfvar-file }} -out=destroy.tfplan
+        continue-on-error: true
+
+      - name: Terraform Plan
+        id: destroy-plan
+        if: !inputs.tfvar-file
+        run: terraform plan -destroy -out=destroy.tfplan
+        continue-on-error: true
+
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+        run: terraform apply -destroy destroy.tfplan

@@ -4,6 +4,9 @@ on:
       working-directory:
         required: true
         type: string
+      tfvar-file:
+        required: false
+        type: string
 
 jobs:
   terraform:
@@ -40,10 +43,18 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
+      - name: Terraform Plan with tfvars
+        id: plan-tfvars
+        if: inputs.tfvar-file
+        run: terraform plan -var-file ${{ inputs.tfvar-file }} -out=terraform.tfplan
+        continue-on-error: true
+
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color
+        if: !inputs.tfvar-file
+        run: terraform plan -out=terraform.tfplan
         continue-on-error: true
+
 
       # - uses: actions/github-script@v6
       #   if: github.event_name == 'pull_request'
@@ -109,4 +120,4 @@ jobs:
 
       - name: Terraform Apply
         if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
-        run: terraform apply -auto-approve
+        run: terraform apply terraform.tfplan
