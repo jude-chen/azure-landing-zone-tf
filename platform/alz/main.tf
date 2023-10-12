@@ -34,4 +34,6 @@ module "caf-enterprise-scale" {
   configure_management_resources   = local.configure_management_resources
   configure_connectivity_resources = local.configure_connectivity_resources
 
+  subscription_id_overrides = var.subscription_id_overrides
+
 }
