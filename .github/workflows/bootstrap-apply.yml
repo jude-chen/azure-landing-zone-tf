@@ -3,8 +3,6 @@ name: Deploy Bootstrap
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - bootstrap/*
   pull_request:
